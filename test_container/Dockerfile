@@ -16,20 +16,23 @@ RUN yarn --pure-lockfile && \
   yarn autoclean --force && \
   yarn cache clean
 
-FROM us-central1-docker.pkg.dev/streamstatetest/streamstatetest/pysparkbase:v0.0.3
+FROM us-central1-docker.pkg.dev/streamstatetest/streamstatetest/pysparkbase:v0.0.5
 USER root
 RUN apt-get update
-RUN apt-get install -y curl libsecret-1-dev
+RUN apt-get install -y curl libsecret-1-dev git
 RUN curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
 RUN apt-get install -y nodejs
 RUN mkdir -p /home/theia 
 RUN mkdir -p /home/sparkpy 
-ADD run.sh /home/sparkpy/run.sh
+ADD samples /home/sparkpy/samples 
+ADD scripts /home/sparkpy/scripts
+ADD topics /home/sparkpy/topics
+ADD .theia /home/sparkpy/.theia
 ADD main.py /home/sparkpy/main.py
 ADD process.py /home/sparkpy/process.py
+ADD conf /home/sparkpy/conf
 ENV HOME /home/sparkpy
-ADD example.json /home/sparkpy/example.json
 WORKDIR /home/theia
 COPY --from=0 /home/theia /home/theia
 EXPOSE 3000

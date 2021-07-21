@@ -1,0 +1,13 @@
+{
+    "tasks": [
+        {
+            "label": "Run spark streaming job",
+            "type": "shell",
+            "command": "./scripts/run.sh",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}

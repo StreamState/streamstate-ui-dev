@@ -13,6 +13,7 @@
     "dependencies": {
         "@theia/editor-preview": "latest",
         "@theia/file-search": "latest",
+        "@theia/task": "latest",
         "@theia/getting-started": "latest",
         "@theia/git": "latest",
         "@theia/markers": "latest",
