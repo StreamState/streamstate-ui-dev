@@ -1,7 +1,7 @@
 ARG NODE_VERSION=12.18.3
 
 FROM node:${NODE_VERSION}
-ARG version=latest
+ARG version=specific
 WORKDIR /home/theia
 ADD $version.package.json ./package.json
 ARG GITHUB_TOKEN
@@ -16,7 +16,7 @@ RUN yarn --pure-lockfile && \
   yarn autoclean --force && \
   yarn cache clean
 
-FROM us-central1-docker.pkg.dev/streamstatetest/streamstatetest/pysparkbase:v0.0.5
+FROM us-central1-docker.pkg.dev/streamstatetest/streamstatetest/pysparkbase:v0.0.25
 USER root
 RUN apt-get update
 RUN apt-get install -y curl libsecret-1-dev git
@@ -42,4 +42,4 @@ ENV SHELL=/bin/bash \
   THEIA_DEFAULT_PLUGINS=local-dir:/home/theia/plugins
 ENV USE_LOCAL_GIT true
 ENTRYPOINT [ "node", "/home/theia/src-gen/backend/main.js", "/home/sparkpy", "--hostname=0.0.0.0" ]
-#CMD /home/theia/run.sh
+#CMD /home/theia/run.s
