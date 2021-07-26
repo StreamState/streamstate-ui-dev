@@ -16,7 +16,7 @@ RUN yarn --pure-lockfile && \
   yarn autoclean --force && \
   yarn cache clean
 
-FROM us-central1-docker.pkg.dev/streamstatetest/streamstatetest/pysparkbase:v0.0.26
+FROM us-central1-docker.pkg.dev/streamstatetest/streamstatetest/pysparkbase:v0.0.27
 USER root
 RUN apt-get update
 RUN apt-get install -y curl libsecret-1-dev git
