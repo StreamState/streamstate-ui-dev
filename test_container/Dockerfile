@@ -16,10 +16,10 @@ RUN yarn --pure-lockfile && \
   yarn autoclean --force && \
   yarn cache clean
 
-FROM us-central1-docker.pkg.dev/streamstatetest/streamstatetest/pysparkbase:v0.0.27
+FROM us-central1-docker.pkg.dev/streamstatetest/streamstatetest/pysparkbase:v0.0.29
 USER root
 RUN apt-get update
-RUN apt-get install -y curl libsecret-1-dev git
+RUN apt-get install -y curl libsecret-1-dev git rename
 RUN curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
 RUN apt-get install -y nodejs

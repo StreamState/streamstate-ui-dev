@@ -11,6 +11,15 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             }
+        },
+        {
+            "label": "Save inputs and outputs",
+            "type": "shell",
+            "command": "./scripts/generate_test_topics.sh",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
         }
     ]
 }
