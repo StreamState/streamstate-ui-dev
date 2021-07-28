@@ -1,0 +1,17 @@
+kafka:
+  brokers: "yourbrokers,commaseperated"
+  confluent_api_key: api_key # you can also specify this as an environmental variable CONFLUENT_API_KEY
+  confluent_secret: secret # you can also specify this as an environmental variable CONFLUENT_SECRET
+
+outputs:
+  mode: append # see https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#output-modes
+  processing_time: "2 seconds" # see https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#triggers
+
+table: # caching table for output
+  primary_keys: 
+    - field1
+  output_schema:
+    - name: field1 
+      type: string
+
+appname: mytestapp # change this...
