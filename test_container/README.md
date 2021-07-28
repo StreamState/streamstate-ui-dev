@@ -16,7 +16,7 @@ You can add as many samples as you want.  Any new samples will be automatically 
 
 First, you will need to edit the contents of [configuration](./config/config.yml).  This will specify your confluent kafka settings as well as several other configuration items for you job.  
 
-Once you are satisfied with your code, you can run the "Save inputs and outputs" task.  This will automatically re-run all your samples and generate the output into memory.  You can check the console to make sure that the output is what you expected.  By default, the "Save inputs and outputs" task will only print out your results.  However, if you supply your StreamState token as described [here](https://github.com/StreamState/terraform-k8s-configuration#deploy-workflow), then the job will automatically push your code to the StreamState server which will run tests, lint your code, and deploy your streaming job.
+Once you are satisfied with your code, you can run the "Save inputs and outputs" task.  This will automatically re-run all your samples and generate the output into memory.  You can check the console to make sure that the output is what you expected.  By default, the "Save inputs and outputs" task will only print out your results.  However, if you supply your StreamState token (described [here](https://github.com/StreamState/terraform-k8s-configuration#deploy-workflow)) as the environment variable TOKEN and your organization as the environmental variable ORGANIZATION, then the job will automatically push your code to the StreamState server which will run tests, lint your code, and deploy your streaming job.
 
 Of course, you can also set up your CI/CD pipeline to run this and push the code so that full provenance is retained.  
 
